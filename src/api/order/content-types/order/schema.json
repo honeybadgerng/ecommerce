@@ -4,7 +4,8 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "order"
+    "displayName": "order",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,21 @@
     },
     "paystackSessionId": {
       "type": "string"
+    },
+    "billingAddress": {
+      "type": "json"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phoneNumber": {
+      "type": "biginteger"
+    },
+    "price_data": {
+      "type": "float"
+    },
+    "price": {
+      "type": "float"
     }
   }
 }

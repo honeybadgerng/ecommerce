@@ -8,8 +8,15 @@ const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
-    const { billingAddress, userName, email, phoneNumber, products } =
-      ctx.request.body;
+    const {
+      billingAddress,
+      userName,
+      email,
+      phoneNumber,
+      products,
+      price_data,
+      price,
+    } = ctx.request.body;
 
     try {
       const lineItems = await Promise.all(
@@ -33,7 +40,17 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
 
       await strapi
         .service("api::order.order")
-        .create({ data: { userName, products } });
+        .create({
+          data: {
+            userName,
+            products,
+            billingAddress,
+            email,
+            phoneNumber,
+            price_data,
+            price,
+          },
+        });
 
       return { message: "saved successfully" };
     } catch (e) {
