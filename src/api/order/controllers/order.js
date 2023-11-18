@@ -38,19 +38,18 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         })
       );
 
-      await strapi
-        .service("api::order.order")
-        .create({
-          data: {
-            userName,
-            products,
-            billingAddress,
-            email,
-            phoneNumber,
-            price_data,
-            price,
-          },
-        });
+      await strapi.service("api::order.order").create({
+        data: {
+          userName,
+          products,
+          billingAddress,
+          email,
+          phoneNumber,
+          price_data,
+          price,
+          lineItems,
+        },
+      });
 
       return { message: "saved successfully" };
     } catch (e) {

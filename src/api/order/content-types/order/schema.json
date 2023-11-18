@@ -35,6 +35,9 @@
     },
     "price": {
       "type": "float"
+    },
+    "lineItems": {
+      "type": "json"
     }
   }
 }
